@@ -36,7 +36,8 @@ st.markdown(
 <style>
 [data-testid="stSidebar"], [data-testid="collapsedControl"],
 [data-testid="stSidebarCollapsedControl"] {display:none;}
-.block-container {padding-top: 5.5rem; max-width: 1100px;}
+.block-container {padding-top: 4rem; padding-left: 250px; max-width: 1250px;}
+@media (max-width: 900px) {.block-container {padding-left: 1rem; padding-top: 7rem;}}
 [id^="sec-"] {scroll-margin-top: 80px;}
 </style>
 """,
@@ -54,14 +55,20 @@ NAV_JS = """
   const st = D.createElement('style');
   st.id = 'hal-nav-style';
   st.textContent = `
-    #hal-nav{position:fixed;top:0;left:0;right:0;z-index:1000002;display:flex;gap:8px;
-      padding:10px 16px;background:#ffffff;border-bottom:1px solid #d5dbe6;
-      overflow-x:auto;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.06);}
-    #hal-nav button{flex:0 0 auto;border:none;border-radius:8px;padding:8px 14px;
-      font:600 13px/1 system-ui,sans-serif;cursor:pointer;background:#e6ebf4;color:#1f3a63;
+    #hal-nav{position:fixed;top:72px;left:16px;width:210px;bottom:16px;z-index:1000002;
+      display:flex;flex-direction:column;gap:6px;padding:10px;background:#ffffff;
+      border:1px solid #d5dbe6;border-radius:12px;overflow-y:auto;
+      box-shadow:0 2px 8px rgba(0,0,0,.06);}
+    #hal-nav button{border:none;border-radius:8px;padding:10px 12px;text-align:left;
+      font:600 13px/1.2 system-ui,sans-serif;cursor:pointer;background:#e6ebf4;color:#1f3a63;
       transition:background .15s,color .15s;}
     #hal-nav button:hover{background:#cfd8e8;}
     #hal-nav button.active{background:#1f3a63;color:#ffffff;}
+    @media (max-width:900px){
+      #hal-nav{top:0;left:0;right:0;bottom:auto;width:auto;flex-direction:row;border-radius:0;
+        overflow-x:auto;overflow-y:hidden;white-space:nowrap;}
+      #hal-nav button{flex:0 0 auto;}
+    }
   `;
   D.head.appendChild(st);
 
@@ -69,7 +76,7 @@ NAV_JS = """
   nav.id = 'hal-nav';
   labels.forEach((t, i) => {
     const b = D.createElement('button');
-    b.textContent = i + '. ' + t;
+    b.textContent = t;
     b.dataset.i = i;
     b.onclick = () => {
       const el = D.getElementById('sec-' + i);
@@ -83,7 +90,7 @@ NAV_JS = """
   function setActive(i) {
     nav.querySelectorAll('button').forEach(b => b.classList.toggle('active', +b.dataset.i === i));
     const a = nav.querySelector('button.active');
-    if (a) a.scrollIntoView({inline: 'center', block: 'nearest'});
+    if (a) a.scrollIntoView({inline: 'nearest', block: 'nearest'});
   }
 
   function spy() {
