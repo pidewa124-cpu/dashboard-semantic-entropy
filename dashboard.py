@@ -188,8 +188,8 @@ def page_dash():
     # Baris 1 - KPI (kiri-atas = paling penting, pola Z)
     c1, c2, c3, c4 = st.columns(4)
     with c1:
-        kpi('Jawaban salah (aktual)', f'{1-(~df["is_correct"]).mean():.1%}',
-            f'{int((~df["is_correct"]).sum())} dari {N} pertanyaan', ORANGE)
+        kpi('Jawaban benar (aktual)', f'{1-(~df["is_correct"]).mean():.1%}',
+            f'{1-int((~df["is_correct"]).sum())} dari {N} pertanyaan', ORANGE)
     with c2:
         kpi('AUROC', f'{auroc["mean"]:.3f}',
             f'CI 95%: {auroc["low"]:.3f}–{auroc["high"]:.3f} · acak = 0,5')
