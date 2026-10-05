@@ -189,7 +189,7 @@ def page_dash():
     c1, c2, c3, c4 = st.columns(4)
     with c1:
         kpi('Jawaban benar (aktual)', f'{1-(~df["is_correct"]).mean():.1%}',
-            f'{1-int((~df["is_correct"]).sum())} dari {N} pertanyaan', ORANGE)
+            f'{810-int((~df["is_correct"]).sum())} dari {N} pertanyaan', ORANGE)
     with c2:
         kpi('AUROC', f'{auroc["mean"]:.3f}',
             f'CI 95%: {auroc["low"]:.3f}–{auroc["high"]:.3f} · acak = 0,5')
