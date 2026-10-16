@@ -161,7 +161,7 @@ def se_hist():
         ax.spines[sp].set_visible(False)
     ax.spines['bottom'].set_color('#C9D3DF')
     ax.tick_params(colors=GREY, length=0, labelsize=9)
-    ax.set_xlabel('Semantic Entropy (nats)', color=GREY, fontsize=9)
+    ax.set_xlabel('Nilai Semantic Entropy (nats)', color=GREY, fontsize=9)
     ax.set_ylabel('Jumlah pertanyaan', color=GREY, fontsize=9)
     ax.legend(frameon=False, fontsize=9, labelcolor=NAVY)
     fig.patch.set_alpha(0)
