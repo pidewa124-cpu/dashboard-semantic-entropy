@@ -256,7 +256,7 @@ def render_explorer(sub, key):
                 st.markdown('<span class="badge b-o">⚠ Jawaban berpotensi halusinasi (SE > threshold)</span>',
                             unsafe_allow_html=True)
             else:
-                st.markdown('<span class="badge b-b">✓ Jawban tidak berpotensi halusinasi (SE ≤ threshold)</span>',
+                st.markdown('<span class="badge b-b">✓ Jawaban tidak berpotensi halusinasi (SE ≤ threshold)</span>',
                             unsafe_allow_html=True)
             st.write('')
             st.markdown(f'**Label best_answer:** {"Jawaban benar" if row["is_correct"] else "Jawaban salah"}')
