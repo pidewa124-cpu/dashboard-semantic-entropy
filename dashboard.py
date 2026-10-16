@@ -142,9 +142,9 @@ def confusion_html():
         return f'<td style="background:rgba(0,114,178,{a:.2f});color:{txt}">{v}</td>'
 
     return (
-        '<table class="cm"><tr><th></th><th>Diprediksi<br>halusinasi</th><th>Diprediksi<br>tidak</th></tr>'
-        f'<tr><th>Aktual salah</th>{cell(TP)}{cell(FN)}</tr>'
-        f'<tr><th>Aktual benar</th>{cell(FP)}{cell(TN)}</tr></table>')
+        '<table class="cm"><tr><th></th><th>Prediksi:<br>Potensi Halusinasi</th><th>Prediksi<br>Tidak Berpotensi Halusinasi</th></tr>'
+        f'<tr><th>Best_answer salah</th>{cell(TP)}{cell(FN)}</tr>'
+        f'<tr><th>Best_answer benar</th>{cell(FP)}{cell(TN)}</tr></table>')
 
 
 def se_hist():
