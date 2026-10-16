@@ -205,7 +205,7 @@ def page_dash():
     with left:
         with st.container(border=True):
             card_title('Jawaban salah cenderung punya Semantic Entropy lebih tinggi',
-                       'Distribusi SE per pertanyaan, dipisah berdasarkan kebenaran jawaban')
+                       'Distribusi SE per pertanyaan, dipisah berdasarkan kebenaran best_answer')
             fig = se_hist()
             st.pyplot(fig, use_container_width=True)
             plt.close(fig)
