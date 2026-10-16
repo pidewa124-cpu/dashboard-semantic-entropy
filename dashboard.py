@@ -284,7 +284,7 @@ def page_about():
 **Semantic Entropy** mengukur ketidakpastian pada level *makna*, bukan urutan token.
 Model diminta menjawab pertanyaan yang sama beberapa kali; jawaban dikelompokkan berdasarkan
 kesetaraan makna (bidirectional entailment), lalu entropi dihitung atas distribusi klaster tersebut.
-SE tinggi → jawaban tidak konsisten secara makna → indikasi konfabulasi.
+SE tinggi → jawaban tidak konsisten secara makna → indikasi konfabulasi/ berpotensi halusinasi
 
 **Cara membaca dashboard**
 - Positif = berpotensi halusinasi. Prediksi berpotensi halusinasi jika SE > threshold optimal (Youden's J pada kurva ROC).
