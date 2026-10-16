@@ -259,7 +259,7 @@ def render_explorer(sub, key):
                 st.markdown('<span class="badge b-b">✓ Tidak terindikasi (SE ≤ threshold)</span>',
                             unsafe_allow_html=True)
             st.write('')
-            st.markdown(f'**Label aktual:** {"Jawaban terbaik ChatGPT benar" if row["is_correct"] else "Jawaban salah"}')
+            st.markdown(f'**Label best_answer:** {"Jawaban terbaik ChatGPT benar" if row["is_correct"] else "Jawaban salah"}')
 
 
 def page_explore():
