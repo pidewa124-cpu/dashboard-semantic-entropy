@@ -229,7 +229,7 @@ def render_explorer(sub, key):
         sub[['question', 'semantic_entropy', 'is_correct', 'predicted_hallucination']]
         .sort_values('semantic_entropy', ascending=False)
         .rename(columns={'question': 'Pertanyaan', 'semantic_entropy': 'Semantic Entropy',
-                         'is_correct': 'Jawaban terbaik ChatGPT benar', 'predicted_hallucination': 'berpotensi halusinasi'}),
+                         'is_correct': 'Jawaban terbaik ChatGPT benar', 'predicted_hallucination': 'Jawaban berpotensi halusinasi'}),
         width='stretch', height=280, hide_index=True)
 
     if sub.empty:
@@ -253,10 +253,10 @@ def render_explorer(sub, key):
                         unsafe_allow_html=True)
             st.write('')
             if row['predicted_hallucination']:
-                st.markdown('<span class="badge b-o">⚠ berpotensi halusinasi (SE > threshold)</span>',
+                st.markdown('<span class="badge b-o">⚠ Jawaban berpotensi halusinasi (SE > threshold)</span>',
                             unsafe_allow_html=True)
             else:
-                st.markdown('<span class="badge b-b">✓ Tidak terindikasi (SE ≤ threshold)</span>',
+                st.markdown('<span class="badge b-b">✓ Jawban tidak berpotensi halusinasi (SE ≤ threshold)</span>',
                             unsafe_allow_html=True)
             st.write('')
             st.markdown(f'**Label best_answer:** {"Jawaban benar" if row["is_correct"] else "Jawaban salah"}')
