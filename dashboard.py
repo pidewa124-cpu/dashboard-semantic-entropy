@@ -142,7 +142,7 @@ def confusion_html():
         return f'<td style="background:rgba(0,114,178,{a:.2f});color:{txt}">{v}</td>'
 
     return (
-        '<table class="cm"><tr><th></th><th>Prediksi:<br>Potensi Halusinasi</th><th>Prediksi<br>Tidak Berpotensi Halusinasi</th></tr>'
+        '<table class="cm"><tr><th></th><th>Prediksi:<br>Berpotensi Halusinasi</th><th>Prediksi<br>Tidak Berpotensi Halusinasi</th></tr>'
         f'<tr><th>Best_answer salah</th>{cell(TP)}{cell(FN)}</tr>'
         f'<tr><th>Best_answer benar</th>{cell(FP)}{cell(TN)}</tr></table>')
 
