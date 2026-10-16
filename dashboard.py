@@ -150,7 +150,7 @@ def confusion_html():
 def se_hist():
     fig, ax = plt.subplots(figsize=(8, 3.5))
     bins = np.linspace(0, max(df['semantic_entropy'].max(), threshold), 21)
-    for ok, color, name in [(True, BLUE, 'Jawaban benar'), (False, ORANGE, 'Jawaban salah')]:
+    for ok, color, name in [(True, BLUE, 'Jawaban terbaik ChatGPT benar'), (False, ORANGE, 'Jawaban salah')]:
         s = df[df['is_correct'] == ok]['semantic_entropy']
         ax.hist(s, bins=bins, color=color, alpha=.85, label=f'{name} (n={len(s)})',
                 histtype='stepfilled' if ok else 'step', linewidth=2.2, edgecolor=color)
@@ -229,7 +229,7 @@ def render_explorer(sub, key):
         sub[['question', 'semantic_entropy', 'is_correct', 'predicted_hallucination']]
         .sort_values('semantic_entropy', ascending=False)
         .rename(columns={'question': 'Pertanyaan', 'semantic_entropy': 'Semantic Entropy',
-                         'is_correct': 'Jawaban benar', 'predicted_hallucination': 'Diduga halusinasi'}),
+                         'is_correct': 'Jawaban terbaik ChatGPT benar', 'predicted_hallucination': 'Diduga halusinasi'}),
         width='stretch', height=280, hide_index=True)
 
     if sub.empty:
@@ -259,7 +259,7 @@ def render_explorer(sub, key):
                 st.markdown('<span class="badge b-b">✓ Tidak terindikasi (SE ≤ threshold)</span>',
                             unsafe_allow_html=True)
             st.write('')
-            st.markdown(f'**Label aktual:** {"Jawaban benar" if row["is_correct"] else "Jawaban salah"}')
+            st.markdown(f'**Label aktual:** {"Jawaban terbaik ChatGPT benar" if row["is_correct"] else "Jawaban salah"}')
 
 
 def page_explore():
@@ -267,7 +267,7 @@ def page_explore():
                 unsafe_allow_html=True)
     search = st.text_input('Cari pertanyaan', placeholder='mis. Sakernas, PDRB, SSU…')
     base = df[df['question'].str.contains(search, case=False, na=False)] if search else df
-    t1, t2, t3 = st.tabs(['Semua', 'Terdeteksi Halusinasi', 'Jawaban Benar'])
+    t1, t2, t3 = st.tabs(['Semua', 'Terdeteksi Halusinasi', 'Jawaban terbaik ChatGPT benar'])
     with t1:
         render_explorer(base, 'all')
     with t2:
