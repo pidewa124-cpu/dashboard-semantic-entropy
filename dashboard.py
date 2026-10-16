@@ -196,7 +196,7 @@ def page_dash():
     with c3:
         kpi('F1-score', f'{f1:.3f}', f'Precision {prec:.2f} · Recall {rec:.2f}')
     with c4:
-        kpi('Threshold optimal', f'{threshold:.3f}', 'SE di atas nilai ini → diduga halusinasi', SKY)
+        kpi('Threshold optimal', f'{threshold:.3f}', 'SE di atas nilai ini → berpotensi halusinasi', SKY)
 
     st.write('')
     left, right = st.columns([3, 2])
@@ -229,7 +229,7 @@ def render_explorer(sub, key):
         sub[['question', 'semantic_entropy', 'is_correct', 'predicted_hallucination']]
         .sort_values('semantic_entropy', ascending=False)
         .rename(columns={'question': 'Pertanyaan', 'semantic_entropy': 'Semantic Entropy',
-                         'is_correct': 'Jawaban terbaik ChatGPT benar', 'predicted_hallucination': 'Diduga halusinasi'}),
+                         'is_correct': 'Jawaban terbaik ChatGPT benar', 'predicted_hallucination': 'berpotensi halusinasi'}),
         width='stretch', height=280, hide_index=True)
 
     if sub.empty:
@@ -253,7 +253,7 @@ def render_explorer(sub, key):
                         unsafe_allow_html=True)
             st.write('')
             if row['predicted_hallucination']:
-                st.markdown('<span class="badge b-o">⚠ Diduga halusinasi (SE > threshold)</span>',
+                st.markdown('<span class="badge b-o">⚠ berpotensi halusinasi (SE > threshold)</span>',
                             unsafe_allow_html=True)
             else:
                 st.markdown('<span class="badge b-b">✓ Tidak terindikasi (SE ≤ threshold)</span>',
@@ -267,7 +267,7 @@ def page_explore():
                 unsafe_allow_html=True)
     search = st.text_input('Cari pertanyaan', placeholder='mis. Sakernas, PDRB, SSU…')
     base = df[df['question'].str.contains(search, case=False, na=False)] if search else df
-    t1, t2, t3 = st.tabs(['Semua', 'Jawban Berpotensi Halusinasi', 'Jawaban terbaik ChatGPT benar'])
+    t1, t2, t3 = st.tabs(['Semua', 'Jawaban Berpotensi Halusinasi', 'Jawaban terbaik ChatGPT benar'])
     with t1:
         render_explorer(base, 'all')
     with t2:
@@ -289,7 +289,7 @@ SE tinggi → jawaban tidak konsisten secara makna → indikasi konfabulasi.
 **Cara membaca dashboard**
 - Positif = berpotensi halusinasi. Prediksi berpotensi halusinasi jika SE > threshold optimal (Youden's J pada kurva ROC).
 - AUROC 0,5 setara tebakan acak; semakin mendekati 1 semakin baik.
-- Palet warna aman buta warna: biru = benar/tidak terindikasi, oranye = salah/diduga halusinasi.
+- Palet warna aman buta warna: biru = benar/tidak terindikasi, oranye = salah/berpotensi halusinasi.
 
 **Referensi**
 - Farquhar, S., Kossen, J., Kuhn, L., & Gal, Y. (2024). Detecting hallucinations in large language models
