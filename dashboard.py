@@ -235,7 +235,7 @@ def render_explorer(sub, key):
     if sub.empty:
         st.write('Tidak ada data sesuai filter.')
         return
-    opts = sub['question_id'] + ' — ' + sub['question'].str.slice(0, 70)
+    opts = sub['question_id'] + ' — ' + sub['question']
     sel = st.selectbox('Pilih pertanyaan untuk detail', opts, key=f'sel_{key}')
     row = df[df['question_id'] == sel.split(' — ')[0]].iloc[0]
 
