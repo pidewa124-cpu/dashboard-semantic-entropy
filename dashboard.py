@@ -267,7 +267,7 @@ def page_explore():
                 unsafe_allow_html=True)
     search = st.text_input('Cari pertanyaan', placeholder='mis. Sakernas, PDRB, SSU…')
     base = df[df['question'].str.contains(search, case=False, na=False)] if search else df
-    t1, t2, t3 = st.tabs(['Semua', 'Terdeteksi Halusinasi', 'Jawaban terbaik ChatGPT benar'])
+    t1, t2, t3 = st.tabs(['Semua', 'Jawban Berpotensi Halusinasi', 'Jawaban terbaik ChatGPT benar'])
     with t1:
         render_explorer(base, 'all')
     with t2:
