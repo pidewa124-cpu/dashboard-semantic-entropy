@@ -35,7 +35,7 @@ h1 {color:#0B2545; font-weight:800; font-size:2rem !important; margin-bottom:.2r
 [data-testid="stSidebar"] [role="radiogroup"] {gap:.25rem;}
 [data-testid="stSidebar"] [role="radiogroup"] label {padding:.6rem .8rem; border-radius:10px;
   border-left:4px solid transparent; width:100%; cursor:pointer;}
-[data-testid="stSidebar"] [role="radiogroup"] label > div:first-child {display:none;}
+[data-testid="stSidebar"] input[type="radio"] {display:none;}
 [data-testid="stSidebar"] [role="radiogroup"] label p {color:#6B7A90; font-weight:500; font-size:.95rem;}
 [data-testid="stSidebar"] [role="radiogroup"] label:has(input:checked) {background:#EAF4FB; border-left-color:#0072B2;}
 [data-testid="stSidebar"] [role="radiogroup"] label:has(input:checked) p {color:#0B2545; font-weight:700;}
