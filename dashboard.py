@@ -171,7 +171,7 @@ def se_hist():
 
 
 # ---------------------------------------------------------------- sidebar nav
-NAV = {'▦  Dashboard': 'dash', '☰  Jelajah Pertanyaan': 'explore', 'ⓘ  Tentang Metode': 'about'}
+NAV = {'Dashboard': 'dash', 'Jelajah Pertanyaan': 'explore', 'Tentang Metode': 'about'}
 with st.sidebar:
     st.markdown('<div class="logo"><div class="logo-i">SE</div>'
                 '<div class="logo-t">Halusinasi<br>ChatGPT</div></div>', unsafe_allow_html=True)
