@@ -98,7 +98,7 @@ df, metrics = load_data()
 auroc = metrics['semantic_entropy']['AUROC']
 threshold = metrics['optimal_threshold']['semantic_entropy_cutoff']
 
-# Metrik dihitung langsung dari labels.json (positif = halusinasi = jawaban salah)
+# Metrik dihitung langsung dari labels.json (positif = potensi halusinasi)
 h_true = ~df['is_correct']
 h_pred = df['predicted_hallucination']
 TP = int((h_true & h_pred).sum())
@@ -213,7 +213,7 @@ def page_dash():
     # Baris 2 kanan - kinerja + confusion matrix
     with right:
         with st.container(border=True):
-            card_title('Kinerja deteksi pada threshold optimal', f'Positif = halusinasi · N = {N}')
+            card_title('Kinerja deteksi pada threshold optimal', f'Positif = berpotensi halusinasi · N = {N}')
             bar('AUROC (garis = acak 0,5)', auroc['mean'], f'{auroc["mean"]:.3f}', BLUE, marker=.5)
             bar('Akurasi', acc, f'{acc:.1%}')
             bar('Precision', prec, f'{prec:.1%}')
@@ -287,7 +287,7 @@ kesetaraan makna (bidirectional entailment), lalu entropi dihitung atas distribu
 SE tinggi → jawaban tidak konsisten secara makna → indikasi konfabulasi.
 
 **Cara membaca dashboard**
-- Positif = halusinasi (jawaban salah). Prediksi halusinasi jika SE > threshold optimal (Youden's J pada kurva ROC).
+- Positif = berpotensi halusinasi. Prediksi berpotensi halusinasi jika SE > threshold optimal (Youden's J pada kurva ROC).
 - AUROC 0,5 setara tebakan acak; semakin mendekati 1 semakin baik.
 - Palet warna aman buta warna: biru = benar/tidak terindikasi, oranye = salah/diduga halusinasi.
 
