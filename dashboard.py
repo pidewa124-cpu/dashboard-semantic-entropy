@@ -175,7 +175,7 @@ NAV = {'Dashboard': 'dash', 'Jelajah Pertanyaan': 'explore', 'Tentang Metode': '
 with st.sidebar:
     st.markdown('<div class="logo"><div class="logo-i">SE</div>'
                 '<div class="logo-t">Halusinasi<br>ChatGPT</div></div>', unsafe_allow_html=True)
-    page = NAV[st.sidebar.selectbox('Navigasi', list(NAV), label_visibility='collapsed')]
+    page = NAV[st.radio('Navigasi', list(NAV), label_visibility='collapsed')]
     st.markdown('<div class="cs" style="margin-top:2rem">Deteksi berbasis Semantic Entropy<br>'
                 'pada metadata statistik berbahasa Indonesia</div>', unsafe_allow_html=True)
 
