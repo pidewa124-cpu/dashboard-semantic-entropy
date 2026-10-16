@@ -150,7 +150,7 @@ def confusion_html():
 def se_hist():
     fig, ax = plt.subplots(figsize=(8, 3.5))
     bins = np.linspace(0, max(df['semantic_entropy'].max(), threshold), 21)
-    for ok, color, name in [(True, BLUE, 'Jawaban benar'), (False, ORANGE, 'Jawaban salah')]:
+    for ok, color, name in [(True, BLUE, 'Best_answer benar'), (False, ORANGE, 'Best_answer salah')]:
         s = df[df['is_correct'] == ok]['semantic_entropy']
         ax.hist(s, bins=bins, color=color, alpha=.85, label=f'{name} (n={len(s)})',
                 histtype='stepfilled' if ok else 'step', linewidth=2.2, edgecolor=color)
