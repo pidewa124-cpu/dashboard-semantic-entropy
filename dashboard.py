@@ -243,8 +243,8 @@ def render_explorer(sub, key):
         d1, d2 = st.columns([3, 2])
         with d1:
             st.markdown(f"**Pertanyaan:** {row['question']}")
-            st.markdown(f"**Jawaban ChatGPT:** {row['best_answer']}")
-            st.markdown(f"**Jawaban referensi:** {row['reference_answer']}")
+            st.markdown(f"**Jawaban Terbaik ChatGPT:** {row['best_answer']}")
+            st.markdown(f"**Jawaban Referensi:** {row['reference_answer']}")
         with d2:
             bar('Semantic Entropy', row['semantic_entropy'] / max(df['semantic_entropy'].max(), 1e-9),
                 f"{row['semantic_entropy']:.3f}", ORANGE if row['predicted_hallucination'] else BLUE,
