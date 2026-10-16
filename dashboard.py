@@ -289,7 +289,7 @@ SE tinggi → jawaban tidak konsisten secara makna → indikasi konfabulasi.
 **Cara membaca dashboard**
 - Positif = berpotensi halusinasi. Prediksi berpotensi halusinasi jika SE > threshold optimal (Youden's J pada kurva ROC).
 - AUROC 0,5 setara tebakan acak; semakin mendekati 1 semakin baik.
-- Palet warna aman buta warna: biru = benar/tidak terindikasi, oranye = salah/berpotensi halusinasi.
+- Biru = tidak berpotensi halusinasi, oranye = berpotensi halusinasi.
 
 **Referensi**
 - Farquhar, S., Kossen, J., Kuhn, L., & Gal, Y. (2024). Detecting hallucinations in large language models
